@@ -14,7 +14,7 @@ def putHigh(c,i):
     
 ## MAIN SHOW ##    
 #c = ModbusClient(host="172.20.2.30", port=502, auto_open=True, auto_close=True)
-c = ModbusClient(host="172.20.2.30", port=502, auto_open=True)
+c = ModbusClient(host="123.145.120.102", port=502, auto_open=True)
 
 for x in range(0,16):
         putHigh(c,x)
