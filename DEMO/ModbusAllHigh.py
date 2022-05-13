@@ -4,7 +4,8 @@
 ## And in Windows: also
 ## pip install win_inet_pton
 from pyModbusTCP.client import ModbusClient
-from win_inet_pton import *
+if os.name == 'nt':
+    from win_inet_pton import *
 import time
 import re 
 
@@ -33,6 +34,7 @@ def validate_ip_address(address):
     
 ## MAIN SHOW ##    
 #c = ModbusClient(host="172.20.2.30", port=502, auto_open=True, auto_close=True)
+print("ModbusAllHigh.py")
 try:
     if validate_ip_address(sys.argv[1]) is False:
         sys.exit(1)
