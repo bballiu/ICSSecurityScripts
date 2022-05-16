@@ -77,7 +77,7 @@ while 1:
     while inp != "":
         if (inp == "Connection: close"):
             shouldClose = True
-        buf +- inp + "\n"
+        buf += inp + "\n"
         inp = input("")
     
     buf += "\n"
