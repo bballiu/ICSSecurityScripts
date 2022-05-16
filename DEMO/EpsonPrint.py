@@ -89,7 +89,7 @@ try:
              break
 except(ConnectionRefusedError):
     print("Target refused communication, make sure the provided IP belongs to an Epson printer")
-    sys.exit
+    sys.exit(1)
 
 print("Cutting label...")
 netcat(ip, port, "\x1B@\x1DV1".encode)
