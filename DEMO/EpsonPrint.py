@@ -67,7 +67,7 @@ ip = sys.argv[1]
 port = 9100
 
 print("Start entering text:")
-print("Close connection by entering: Connection: close")
+print("Close connection by entering: exit")
 
 while 1:
     buf =""
@@ -75,7 +75,7 @@ while 1:
 
     inp = input("")
     while inp != "":
-        if (inp == "Connection: close"):
+        if (inp == "exit"):
             shouldClose = True
         buf += inp + "\n"
         inp = input("")
