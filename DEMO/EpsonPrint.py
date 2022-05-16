@@ -17,6 +17,7 @@ import socket
 
 def netcat(_ip, _port, _content):
     #initilize connection
+
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((_ip,_port))
 
@@ -69,22 +70,25 @@ port = 9100
 print("Start entering text:")
 print("Close connection by entering: exit")
 
-while 1:
-    buf =""
-    shouldClose = False
+try:
+    while 1:
+        buf =""
+        shouldClose = False
 
-    inp = input("")
-    while inp != "":
-        if (inp == "exit"):
-            shouldClose = True
-        buf += inp + "\n"
         inp = input("")
+        while inp != "":
+            if (inp == "exit"):
+                shouldClose = True
+            buf += inp + "\n"
+            inp = input("")
     
-    buf += "\n"
-    netcat(ip,port, buf.encode())
+        buf += "\n"
+        netcat(ip,port, buf.encode())
     
-    if(shouldClose):
-         break
+        if(shouldClose):
+             break
+except(ConnectionRefusedError):
+    print("Target refused communication, make sure the provided IP belongs to an Epson printer")
 
 print("Cutting label...")
 netcat(ip, port, "\x1B@\x1DV1".encode)
