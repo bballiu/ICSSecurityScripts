@@ -83,12 +83,13 @@ try:
             inp = input("")
     
         buf += "\n"
-        netcat(ip,port, buf.encode())
+        netcat(ip,port,buf.encode())
     
         if(shouldClose):
              break
 except(ConnectionRefusedError):
     print("Target refused communication, make sure the provided IP belongs to an Epson printer")
+    sys.exit
 
 print("Cutting label...")
 netcat(ip, port, "\x1B@\x1DV1".encode)
