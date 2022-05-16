@@ -18,7 +18,7 @@ import socket
 def netcat(_ip, _port, _content):
     #initilize connection
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect(_ip,_port)
+    sock.connect((_ip,_port))
 
     sock.sendall(_content)
     sock.sleep(0.5)
