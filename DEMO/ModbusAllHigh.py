@@ -4,9 +4,11 @@
 ## And in Windows: also
 ## pip install win_inet_pton
 from pyModbusTCP.client import ModbusClient
+import os 
+import sys
 if os.name == 'nt':
     from win_inet_pton import *
-import time
+import sys
 import re 
 
 timeout=0.1
