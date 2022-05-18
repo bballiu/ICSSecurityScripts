@@ -14,7 +14,7 @@ def ledWalkLeft(c):
     #for x in range(8, 15):
     for x in range(0, 9):
         putHighAndLow(c,x)
-    c.write_single_coil(9,1)
+    c.write_coil(9,1)
     time.sleep(timeout)
 
 def ledWalkRight(c):
@@ -36,5 +36,5 @@ ledWalkLeft(c)
 ledWalkRight(c)
 ledWalkLeft(c)
 ledWalkRight(c)
-c.write_single_coil(0,0)
+c.write_coil(0,0)
 c.close()
