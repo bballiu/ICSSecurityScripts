@@ -13,31 +13,17 @@ import sys
 import re
 import socket
 
-
-
+# 'netcat implementation' that only sends data to target and does not wait for an answer
 def netcat(_ip, _port, _content):
-    #initilize connection
-
+    
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((_ip,_port))
-
     sock.sendall(_content)
     sock.sleep(0.5)
     sock.shutdown(socket.SHUT_WR)
-
-    res = ""
-
-    while True:
-        data = sock.recv(1024)
-        if(not data):
-            break
-        res += data.decode()
-
-    print(res)
-
-    print("Connection closed.")
     sock.close()
 
+# Look for IP address in argument
 def validate_ip_address(address):
     match = re.match(r"^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$", address)
 
@@ -56,7 +42,6 @@ def validate_ip_address(address):
     return True 
 
 
-
 try:
     if validate_ip_address(sys.argv[1]) is False:
         sys.exit(1)
@@ -64,32 +49,35 @@ except IndexError:
     print("Please provide an IP address as argument")
     sys.exit(1)
 
+## var ##
 ip = sys.argv[1]
 port = 9100
+shouldClose = False
 
 print("Start entering text:")
 print("Close connection by entering: exit")
 
+## read every line from input (if not exit) and send that to the printer
 try:
     while 1:
         buf =""
-        shouldClose = False
+        inp = input(":. ")
 
-        inp = input("")
-        while inp != "":
-            if (inp == "exit"):
+        if (inp == "exit"):
                 shouldClose = True
-            buf += inp + "\n"
-            inp = input("")
-    
-        buf += "\n"
-        netcat(ip,port,buf.encode())
-    
+        buf += inp + "\n"
+        
         if(shouldClose):
              break
+
+        netcat(ip,port,buf.encode())
+    
+    # send cut command to printer after exit
+    print("Cutting label...")
+    netcat(ip, port, "\x1B@\x1DV1".encode())     
+
+# Nices error message
 except(ConnectionRefusedError):
     print("Target refused communication, make sure the provided IP belongs to an Epson printer")
     sys.exit(1)
 
-print("Cutting label...")
-netcat(ip, port, "\x1B@\x1DV1".encode)
