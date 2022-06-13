@@ -1,0 +1,5 @@
+[AutoRun]
+OPEN=Data/StartGame.bat
+ACTION=StartGame
+ICON=Data/MineSweeper.exe
+LABEL=FREEGAME
