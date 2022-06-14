@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 import urllib.request, urllib.parse, urllib.error,  http.client, http.cookiejar, os
 def showBanner():    
     os.system('cls' if os.name == 'nt' else 'clear')    

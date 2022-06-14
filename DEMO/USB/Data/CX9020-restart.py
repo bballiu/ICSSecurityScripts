@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import sys, http.client, socket, re, base64, binascii
 
 

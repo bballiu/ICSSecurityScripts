@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 import sys, http.client, socket, re, base64
 from urllib import response
 
