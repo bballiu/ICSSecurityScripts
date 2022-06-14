@@ -1,13 +1,11 @@
 #########################################################
-#  __                    , _                            #
-# / ()      ,   _       /|/ \ ,_  o      _|_   ,  |)    #
-# >-   |/\_/ \_/ \_/|/|  |__//  | | /|/|  |   / \_|/\   #
-# \___/|_/  \/ \_/  | |_/|      |/|/ | |_/|_/o \/ |  |  #
-#     (|                                                #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#           Created by Benoit.balliu@howest.be          #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #########################################################
 
 # Simple script that takes an IP address as argument and lets
-# you print and then cut off whatever you can type
+# you print and then cut off whatever you can type aka imitates netcat
 
 import sys
 import re

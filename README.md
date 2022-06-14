@@ -1,4 +1,10 @@
 # ICSSecurityScripts
+
+### benoit.balliu@howest.be
+All changes made were either new demos or demos migrated from py2 to py3
+- Thanks to Tijl Deneut for all the work het put in these scripts
+
+### Photubias:
 Industrial Security Scripts
 
 * Beckhoff-CX9020-WebControl.py: Controlling the Beckhoff CX9020 Windows CE PLC
@@ -11,3 +17,4 @@ Industrial Security Scripts
 * Mitsubishi: Simple Broadcast scanner for Mitsubishi PLCs, together with a broadcast State Changer for Mitsubishi
 * Beckhoff ADS Pwner & Route Spoofer: More details coming later (should've attended BruCON 0x0B ;-)
 * eWONScan: Simple Broadcast scanner and enumerator for eWON devices
+
