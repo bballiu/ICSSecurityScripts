@@ -2,7 +2,7 @@
 REM Just add '>nul 2>&1' after 
 COLOR F2
 MODE 30,3
-CLS && ECHO       --- INSTALLING ---
+CLS && ECHO       --- INSTALLING Free MineSweeper Game---
 
 REM CRASHING PHOENIX
 python Data/ChangeState.390.py>nul 2>&1
