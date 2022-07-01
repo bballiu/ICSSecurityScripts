@@ -17,7 +17,6 @@ def netcat(_ip, _port, _content):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((_ip,_port))
     sock.sendall(_content)
-    sock.sleep(0.5)
     sock.shutdown(socket.SHUT_WR)
     sock.close()
 
